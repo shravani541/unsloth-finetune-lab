@@ -5,6 +5,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![Powered by Unsloth](https://img.shields.io/badge/Powered%20by-Unsloth-green.svg)](https://github.com/unslothai/unsloth)
 [![Gradio](https://img.shields.io/badge/UI-Gradio-orange.svg)](https://gradio.app/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shravani541/unsloth-finetune-lab/blob/main/notebooks/quickstart_colab.ipynb)
 
 A production-ready machine learning engineering pipeline for **efficient LLM fine-tuning, side-by-side performance benchmarking, GGUF/Ollama quantization export, and interactive deployment**. Built around [Unsloth](https://github.com/unslothai/unsloth) kernels and PyTorch to deliver up to **5x faster training** and **~70% VRAM memory reduction**.
 
