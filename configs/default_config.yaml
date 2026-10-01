@@ -1,0 +1,49 @@
+# FastTune-Lab: Default Training Configuration (Llama 3 8B)
+
+model:
+  name: "unsloth/llama-3-8b-Instruct-bnb-4bit"
+  max_seq_length: 2048
+  dtype: null  # Auto-detected (Float16 or Bfloat16)
+  load_in_4bit: true
+
+lora:
+  r: 16
+  lora_alpha: 16
+  lora_dropout: 0.0  # Unsloth recommends 0 for speed
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"  # 30% less VRAM
+  random_state: 3407
+
+dataset:
+  name: "yahma/alpaca-cleaned"
+  split: "train"
+  max_samples: 5000  # Set null for full dataset
+  format: "alpaca"   # Options: 'alpaca', 'sharegpt', 'text'
+
+training:
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 10
+  max_steps: 100
+  learning_rate: 2.0e-4
+  fp16: false
+  bf16: true
+  logging_steps: 10
+  optim: "adamw_8bit"
+  weight_decay: 0.01
+  lr_scheduler_type: "linear"
+  seed: 3407
+  output_dir: "outputs/llama3_lora"
+
+export:
+  save_method: "lora"       # Options: 'lora', 'merged_16bit', 'merged_4bit', 'gguf'
+  gguf_quantization: "q4_k_m"
+  export_dir: "outputs/exported_model"
