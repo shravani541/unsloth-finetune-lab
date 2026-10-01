@@ -88,7 +88,7 @@ unsloth-finetune-lab/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/unsloth-finetune-lab.git
+git clone https://github.com/shravani541/unsloth-finetune-lab.git
 cd unsloth-finetune-lab
 
 # Create and activate virtual environment
